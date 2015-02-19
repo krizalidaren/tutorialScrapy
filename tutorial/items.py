@@ -23,5 +23,5 @@ class SicoesItem(scrapy.Item):
     estado = scrapy.Field()
     fecha_publi = scrapy.Field()
     fecha_presen = scrapy.Field()
-    # archivos = scrapy.Field()
-    # formularios = scrapy.Field()
+    archivos = scrapy.Field()
+    formularios = scrapy.Field()

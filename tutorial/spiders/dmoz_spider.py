@@ -12,18 +12,18 @@ class SicoesSpider(scrapy.Spider):
     def parse(self, response):
         for sel in response.xpath('//tr'):
             item = SicoesItem()
-            item['nro'] = sel.xpath('td/text()').extract()
-            item['cuce'] = sel.xpath('td/text()').extract()
-            item['entidad'] = sel.xpath('td/text()').extract()
-            item['modalidad'] = sel.xpath('td/text()').extract()
-            item['nro_ctrl'] = sel.xpath('td/text()').extract()
-            item['nro_conv'] = sel.xpath('td/text()').extract()
-            item['objeto'] = sel.xpath('td/text()').extract()
-            item['estado'] = sel.xpath('td/text()').extract()
-            item['fecha_publi'] = sel.xpath('td/text()').extract()
-            item['fecha_presen'] = sel.xpath('td/text()').extract()
-            # item['archivos'] = sel.xpath('td/text()').extract()
-            # item['formularios'] = sel.xpath('td/text()').extract()
+            item['nro'] = sel.xpath('td[1]/text()').extract()
+            item['cuce'] = sel.xpath('td[2]/text()').extract()
+            item['entidad'] = sel.xpath('td[3]/text()').extract()
+            item['modalidad'] = sel.xpath('td[4]/text()').extract()
+            item['nro_ctrl'] = sel.xpath('td[5]/text()').extract()
+            item['nro_conv'] = sel.xpath('td[6]/text()').extract()
+            item['objeto'] = sel.xpath('td[7]/text()').extract()
+            item['estado'] = sel.xpath('td[8]/div/text()').extract()
+            item['fecha_publi'] = sel.xpath('td[9]/text()').extract()
+            item['fecha_presen'] = sel.xpath('td[10]/text()').extract()
+            item['archivos'] = sel.xpath('td[11]/a/@onclick').extract()
+            item['formularios'] = sel.xpath('td[12]/a/@onclick').extract()
             yield item
 
 
